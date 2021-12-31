@@ -2,6 +2,31 @@
     color:red;
 }
 
-div{
-    color: black;
+.glyphicon-pencil{
+    color: blue;
 }
+
+label{
+    margin: 8px;
+}
+
+.btn-success{
+    color: white ;
+    background-color:#314f40;
+    border-color: black;
+}
+.alert-success{
+    color:#314f40;
+    font-variant: small-caps;
+}
+
+.alert-danger{
+    color: crimson;
+    text-decoration: underline;
+    font-variant: small-caps;
+}
+
+.badge{
+    color: white;
+}
+

@@ -56,8 +56,8 @@ function ListarEmp (){
                     "<th> Codigo de empleado: </th>" +
                     "<th> salario: </th>" +
                     "<th> Ciudad: </th>" +
-                    "<th> </th>" +
-                    "<th>  </th>" +
+                    "<th> editar </th>" +
+                    "<th> borrar </th>" +
                 "</tr>" +
             "</thead>" +
             "<tbody>" +
