@@ -93,7 +93,7 @@ function contarEmp(){
     nEmp = empleados.length;
 
     $("#numeroEmpleados").append(
-        "<a>Tienes actualmente" + "<br>" + "<span class='badge'>" + nEmp + "</span></a> registros"
+        "<a>Tienes actualmente" + "<br>" + "<span class='badge'>" + nEmp + "</span></a> Registros."
     );
     return nEmp;
 }
