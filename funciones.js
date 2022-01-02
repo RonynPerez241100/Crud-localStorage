@@ -1,6 +1,6 @@
 
 var dbEmpleados = localStorage.getItem("dbEmpleados"); //Obtener datos de localStorage
-var operacion = "A"; //"A"=agregar; "E"=edtidar
+var operacion = "A"; //"A"=agregar; "E"=edtidar; "W"= esperar
 dbEmpleados = JSON.parse(dbEmpleados); // Covertir a objeto
 if (dbEmpleados === null) // Si no existe, creamos un array vacio.
     dbEmpleados = [];
@@ -25,6 +25,8 @@ function Mensaje(t){
 
 
 function AgregarEmp () {
+
+    operacion = "A";
     // Seleccionamos los datos de los inputs de formulario
     var datos_cliente = JSON.stringify({
         fullName : $("#fullName").val(),
@@ -56,8 +58,8 @@ function ListarEmp (){
                     "<th> Codigo de empleado: </th>" +
                     "<th> salario: </th>" +
                     "<th> Ciudad: </th>" +
-                    "<th> editar </th>" +
-                    "<th> borrar </th>" +
+                    "<th> </th>" +
+                    "<th>  </th>" +
                 "</tr>" +
             "</thead>" +
             "<tbody>" +
@@ -93,7 +95,7 @@ function contarEmp(){
     nEmp = empleados.length;
 
     $("#numeroEmpleados").append(
-        "<a>Tienes actualmente" + "<br>" + "<span class='badge'>" + nEmp + "</span></a> Registros."
+        "<a>Tienes actualmente" + "<br>" + "<span class='badge'>" + nEmp + "</span></a> registros"
     );
     return nEmp;
 }
@@ -111,8 +113,9 @@ function Editar() {
         salary : $("#salary").val(),
         city : $("#city").val(),
     });
-    localStorage.setItem("dbEmpleados", JSON.stringify(dbEmpleados));
-    operacion = "A"; //Regresamos la valor original
+    localStorage.setItem(dbEmpleados[indice_selecionado], JSON.stringify(dbEmpleados[indice_selecionado])); //Asignas el indice en el primero, y el valor en el segundo
+    operacion = "W" // Es necesario un tercer estado para evitar duplicaciones.
+    ListarEmp();
     return true;
 
 }
@@ -150,7 +153,7 @@ $("#empleados-form").bind("submit", function() {
     debugger;
     if (operacion == "A")
         return AgregarEmp();
-    else {
+    else if (operacion == "E") {
         return Editar();
     }
 });
