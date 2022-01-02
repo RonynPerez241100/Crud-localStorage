@@ -137,7 +137,7 @@ $(".btnEditar").bind("click", function() {
     indice_selecionado = $(this).attr("id");
     console.log(indice_selecionado);
     console.log(this);
-    // Llemanos el formulario con los datos actuales de la vaca a editar
+    // Llemanos el formulario con los datos actuales del emplado a editar
     var empItem = JSON.parse(dbEmpleados[indice_selecionado]);
     $("#fullName").val(empItem.fullName);
     $("#codEmp").val(empItem.codEmp);
